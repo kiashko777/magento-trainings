@@ -27,13 +27,14 @@
          * @param array $data
          */
         public function __construct(
-            ContextInterface $context,
+            ContextInterface   $context,
             UiComponentFactory $uiComponentFactory,
-            UrlInterface $urlBuilder,
-            Escaper $escaper,
-            array $components = [],
-            array $data = []
-        ) {
+            UrlInterface       $urlBuilder,
+            Escaper            $escaper,
+            array              $components = [],
+            array              $data = []
+        )
+        {
             $this->urlBuilder = $urlBuilder;
             $this->escaper = $escaper;
             parent::__construct($context, $uiComponentFactory, $components, $data);
