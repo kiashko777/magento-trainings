@@ -8,6 +8,8 @@
     use MageMastery\Blog\Service\PostsProvider;
     use Magento\Framework\App\RequestInterface;
     use Magento\Framework\View\Element\Block\ArgumentInterface;
+    use Magento\Framework\View\Element\Template;
+    use MageMastery\Blog\Model\Post;
     use Magento\Theme\Block\Html\Pager;
 
     class Posts implements ArgumentInterface
@@ -40,5 +42,11 @@
                 ->setLimit($collection->getPageSize())
                 ->setCollection($collection);
             return $pagerBlock->toHtml();
+        }
+
+        public function getPostHtml(Template $block, Post $post): string
+        {
+            $block->setData('post', $post);
+            return $block->toHtml();
         }
     }
